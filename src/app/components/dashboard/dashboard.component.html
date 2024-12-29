@@ -1,12 +1,25 @@
   <div class="container-fluid px-4 py-4">
       <div class="card">
-          <div class="card-body">
+          <div class="card-header">
             <div class="d-flex justify-content-center">
-              <h2>BIENVENIDOS</h2>
+              <h2 class="title">BIENVENIDOS</h2>
             </div>
-            <div class="text-center">
+            
+            
+          </div>
+          <div class="card-body">
+            
+            <div
+              *ngFor="let panel of panels; let i = index"
+              class="panel"
+              [class.active]="i === activePanelIndex"
+              [style.background-image]="'url(' + panel.imageUrl + ')'"
+              (click)="setActivePanel(i)"
+            >
+              <!-- <h3>{{ panel.title2 }}</h3> -->
+              
+            </div>
        
-            </div>
           </div>
       </div> 
   </div>
