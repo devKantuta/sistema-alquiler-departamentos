@@ -7,7 +7,8 @@ import { ContratoService } from 'src/app/services/contrato.service';
 
 @Component({
   selector: 'app-reporte',
-  templateUrl: './reporte.component.html'
+  templateUrl: './reporte.component.html',
+  styleUrls: ['./reporte.component.css']
 })
 export class ReporteComponent implements OnInit {
   id_reporte:number=0;

@@ -8,6 +8,7 @@ import { ErrorService } from 'src/app/services/error.service';
 @Component({
   selector: 'app-inquilino',
   templateUrl: './inquilino.component.html',
+  styleUrls: ['./inquilino.component.css']
  })
 export class InquilinoComponent implements OnInit {
 

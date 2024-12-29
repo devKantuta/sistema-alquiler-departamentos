@@ -1,0 +1,185 @@
+/* General */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f3f4f6, #edf2f7);
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-weight: 700;
+    color: #4a5568;
+    text-align: center;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #ff6f61, #ffa17a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Animación de texto */
+@keyframes glow {
+    0% {
+        text-shadow: 0px 0px 10px #ff6f61;
+    }
+    100% {
+        text-shadow: 0px 0px 20px #ffa17a;
+    }
+}
+
+/* Tabla */
+.table {
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 6px 12px rgba(13, 7, 126, 0.1); /* Menos sombra oscura */
+    background: linear-gradient(135deg, #ffffff, #f7fafc); /* Fondo más claro */
+    animation: slideIn 1s ease-out;
+}
+
+.table thead tr {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+}
+
+.table tbody tr {
+    transition: background-color 0.4s, transform 0.3s;
+}
+
+.table tbody tr:hover {
+    background: linear-gradient(135deg, #f7fafc, #e3f2fd); /* Color de fondo más suave */
+    transform: scale(1.03);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Botones */
+.btn {
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background: linear-gradient(90deg, #5610ce, #9918b3);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(40, 167, 69, 0.5);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #007bff, #6610f2);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.5);
+}
+
+.btn-danger {
+    background: linear-gradient(90deg, #dc3545, #ff6f61);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(220, 53, 69, 0.5);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal */
+.modal-content {
+    border-radius: 15px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1); /* Menos sombra oscura */
+    animation: zoomIn 0.8s ease-out;
+    background: linear-gradient(135deg, #ffffff, #e3f2fd); /* Fondo más claro */
+}
+
+.modal-header {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: #ffffff;
+    border-bottom: 2px solid #e2e8f0;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.modal-footer {
+    background: linear-gradient(135deg, #f7fafc, #ffffff);
+    border-top: 2px solid #e2e8f0;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Inputs y Selects */
+.form-control-sm,
+.form-select-sm {
+    border-radius: 10px;
+    border: 1px solid #cbd5e0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control-sm:focus,
+.form-select-sm:focus {
+    border-color: #6a11cb;
+    box-shadow: 0px 0px 8px rgba(106, 17, 203, 0.7);
+}
+
+/* Badges */
+.badge {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    box-shadow: 0px 3px 6px rgba(16, 9, 162, 0.1).1).1).1).1);
+}
+
+.badge.bg-success {
+    background: linear-gradient(90deg, #60147a, #1925ad);
+    color: white;
+}
+
+.badge.bg-danger {
+    background: linear-gradient(90deg, #dc3545, #ff6f61);
+    color: white;
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

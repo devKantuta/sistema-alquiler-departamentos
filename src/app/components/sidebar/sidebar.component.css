@@ -1,6 +1,193 @@
-.nav-link div {
-  color: Mediumslateblue;
-  /* box-shadow: -1px 0px 4px 1px rgb(8, 57, 114); */
-  filter: drop-shadow(2px 2px 1px  rgb(196, 14, 202));
-  /* filter: drop-shadow(16px 16px 20px rgb(18, 145, 138)) invert(75%); */
+/* Estilos generales */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #e0f7fa, #81d4fa); /* Fondo azul-celeste */
+  color: #343a40;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Barra lateral */
+#layoutSidenav_nav {
+  background: linear-gradient(135deg, #220c7a, #0091ea); /* Degradado azul-celeste */
+  height: 100vh;
+  width: 250px;
+  transition: width 0.3s ease;
+}
+
+/* Sidenav oscuro */
+.sb-sidenav-dark {
+  background: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
+  color: #ecf0f1;
+}
+
+/* Animación de logo */
+.logo-animado {
+  width: 150px;
+  height: auto;
+  border-radius: 50%; /* Marco redondeado para la imagen */
+  animation: bounce 2s infinite alternate; /* Animación que hace que el logo rebote */
+  border: 5px solid #0091ea; /* Borde celeste alrededor del logo */
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Encabezados de la barra lateral */
+.sb-sidenav-menu-heading {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 20px;
+  background: linear-gradient(90deg, #0091ea, #121ea6); /* Degradado azul-celeste */
+ 
+  -webkit-text-fill-color: transparent;
+  animation: glow 1.5s infinite alternate;
+}
+
+/* Animación de resplandor en el texto */
+@keyframes glow {
+  0% {
+    text-shadow: 0px 0px 10px #0091ea;
+  }
+  100% {
+    text-shadow: 0px 0px 20px #131186;
+  }
+}
+
+/* Enlaces de la barra lateral */
+.nav-link {
+  color: #ecf0f1;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  animation: fadeInNavLink 0.5s ease-out;
+}
+
+/* Efecto hover para los enlaces */
+.nav-link:hover {
+  background-color: #0b1799; /* Fondo verde claro al pasar el ratón */
+  color: #ffffff; /* Texto blanco */
+  transform: scale(1.05);
+}
+
+/* Efecto para los enlaces activos */
+.nav-link.active {
+  background-color: #0091ea; /* Fondo azul claro activo */
+  color: #ffffff;
+}
+
+/* Iconos dentro de los enlaces */
+.sb-nav-link-icon {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* Animación de aparición de los enlaces */
+@keyframes fadeInNavLink {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Botones */
+.btn {
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para los botones */
+.btn-success {
+  background: linear-gradient(90deg, #00bcd4, #0091ea); /* Degradado azul-celeste */
+  color: #ffffff;
+  border: none;
+  box-shadow: 0px 4px 8px rgba(22, 7, 149, 0.5);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #4caf50, #0091ea); /* Degradado azul-celeste */
+  color: #ffffff;
+  border: none;
+  box-shadow: 0px 4px 8px rgba(57, 21, 174, 0.5);
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #e74c3c, #f39c12); /* Degradado rojo-amarillo */
+  color: #ffffff;
+  border: none;
+  box-shadow: 0px 4px 8px rgba(231, 76, 60, 0.5);
+}
+
+/* Efecto hover para los botones */
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Pie de la barra lateral */
+.sb-sidenav-footer {
+  background: rgba(55, 25, 153, 0.8); /* Fondo morado */
+  backdrop-filter: blur(10px); /* Efecto de vidrio difuso */
+  padding: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #ecf0f1;
+  border-top: 1px solid #ffffff;
+  animation: glowFooter 1.5s infinite alternate;
+}
+
+/* Animación del pie de la barra */
+@keyframes glowFooter {
+  0% {
+    background: rgba(40, 72, 176, 0.8);
+  }
+  100% {
+    background: rgb(54, 15, 183);
+  }
+}
+
+/* Animaciones generales */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

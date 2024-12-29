@@ -6,7 +6,8 @@ import { PagoService } from 'src/app/services/pago.service';
 
 @Component({
   selector: 'app-pago',
-  templateUrl: './pago.component.html'
+  templateUrl: './pago.component.html',
+  styleUrls: ['./pago.component.css']
 })
 export class PagoComponent implements OnInit {
 
