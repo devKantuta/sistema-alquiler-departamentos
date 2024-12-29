@@ -1,0 +1,60 @@
+<div class="bg-default " >
+    <div id="layoutAuthentication"  *ngIf="!loading" >
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4  mt-5">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5 ">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-3">Create Account</h3></div>
+                                <div class="card-body">
+                                    <div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input type="text" [(ngModel)]="username" class="form-control" placeholder="Ingrese usuario">
+                                                    <label for="inputFirstName">Usuario</label>
+                                                </div>
+                                            </div>
+                                          
+                                        </div>
+                                 
+                                        <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input type="password" [(ngModel)]="password" class="form-control" placeholder="Ingrese password">
+                                                    <label>Password</label>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-md-12">
+                                                <div class="form-floating mb-3 mb-md-0">
+                                                    <input type="password" [(ngModel)]="confirmPassword" class="form-control" placeholder="Ingrese password de nuevo">
+                                                    <label>Repetir Password</label>
+                                                </div>
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="mt-4 mb-0">
+                                            <div class="d-grid">
+                                                <button type="button" (click)="addUser()" class="btn btn-primary btn-block">Aceptar</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center py-3">
+                                    <div class="small"> <a routerLink="/login" href="">Volver</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
+    <app-spinner *ngIf="loading"></app-spinner>
+</div>

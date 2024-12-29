@@ -1,0 +1,20 @@
+<div *ngIf="userService.isLoginPage; else Template">
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template  #Template>
+    <app-navbar></app-navbar>
+    <div id="layoutSidenav">
+        <app-sidebar></app-sidebar>
+        <div id="layoutSidenav_content">
+
+            <main>
+                <div class="container-fluid px-4">
+                    <router-outlet></router-outlet>
+                </div>
+            </main>
+            
+            <app-footer></app-footer>
+        </div>
+    </div>
+</ng-template>

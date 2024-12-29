@@ -1,0 +1,53 @@
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Inquilinos</h1>
+    <div class="row mb-4">
+        <div class="mb-3 col col-md-4">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" [(ngModel)]="nombre" class="form-control" id="nombre" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3 col col-md-4">
+          <label for="apellido" class="form-label">Apellido</label>
+          <input type="text" [(ngModel)]="apellido" class="form-control" id="apellido">
+        </div>
+        <div class="mb-3 col col-md-4">
+          <label for="telefono" class="form-label">Telefono</label>
+          <input type="text" [(ngModel)]="telefono" class="form-control" id="telefono">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+              <button   (click)="Add()" type="button" class="btn btn-primary btn-sm">{{ accion }} </button>
+            </div>
+        </div>
+    </div>
+
+   <div class="card ">
+       <div class="card-body">
+         <div class="text-center">
+            <div class="table-responsive">
+             <table class="table table-striped table-hover table-sm  table-bordered">
+               <thead>
+                 <tr class="table-dark">
+                   <th scope="col" width="35%">Nombre</th>
+                   <th scope="col">Apellido</th>
+                   <th scope="col">Telefono</th>
+                   <th width="1%"></th>
+                   <th width="1%"></th>
+                 </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let item of lista">
+                    <td>{{ item.nombre }}</td>
+                    <td>{{ item.apellido }} </td>
+                    <td>{{ item.telefono }} </td>
+                    <td><button (click)="Update(item)" class="btn btn-sm btn-primary"><i  class="fa-solid fa-pen-to-square"></i></button></td>
+                    <td><button (click)="Delete(item.id)" class="btn btn-sm btn-danger"><i  class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+               </tbody>
+             </table>
+            </div>
+           </div>
+       </div>
+   </div> 
+</div>
+

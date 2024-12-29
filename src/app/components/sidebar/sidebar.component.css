@@ -1,0 +1,6 @@
+.nav-link div {
+  color: Mediumslateblue;
+  /* box-shadow: -1px 0px 4px 1px rgb(8, 57, 114); */
+  filter: drop-shadow(2px 2px 1px  rgb(196, 14, 202));
+  /* filter: drop-shadow(16px 16px 20px rgb(18, 145, 138)) invert(75%); */
+}

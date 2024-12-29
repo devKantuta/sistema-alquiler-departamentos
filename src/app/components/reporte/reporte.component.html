@@ -1,0 +1,33 @@
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Reportes</h1>
+    <div class="row mb-4">
+        <div class="mb-3 col col-md-3">
+          <label for="numero" class="form-label">Tipo de Reporte</label>
+          <!-- [(ngModel)]="id_contrato"(change)="onSelectChange($event)"  -->
+          <select  [(ngModel)]="id_reporte"  class="form-select form-select-sm " name="contrato" id="contrato" aria-placeholder="Contrato">
+            <option value="0">Total Deudas por Contrato</option>
+            <option value="1">Total Pagos por Contrato</option>
+            <option value="2">Contrato por vencer</option>
+            <option value="3">Cuarto mas solicitado</option>
+            <option value="4">Deudas segun rango de fecha</option>
+        </select>
+        </div>
+
+        <div class="mb-3 col col-md-3">
+          <label for="fecha_ini" class="form-label">Fecha Inicio</label>
+          <input type="date" [(ngModel)]="fecha_inicio"class="form-control form-control-sm" id="fecha_ini">
+        </div>
+        <div class="mb-3 col col-md-3">
+          <label for="fecha_fin" class="form-label">Fecha Fin</label>
+          <input type="date" [(ngModel)]="fecha_fin" class="form-control form-control-sm" id="fecha_fin">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+              <button   (click)="Ejecutar()" type="button" class="btn btn-primary btn-sm">Generar Pdf</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+

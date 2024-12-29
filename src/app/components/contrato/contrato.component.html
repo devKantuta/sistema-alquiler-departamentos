@@ -1,0 +1,131 @@
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Contratos de Alquiler</h1>
+
+   <div class="card ">
+       <div class="card-body">
+        <div class="row mb-2">
+            <div class="d-flex justify-content-end">
+                <div class="form-group">
+                    <button type="button" class="agregar btn btn-success btn-sm" (click)="AbrirModal()">Nuevo contrato</button>
+                </div>
+            </div>
+        </div>
+         <div class="text-center">
+            <div class="table-responsive">
+             <table class="table table-striped table-hover table-sm  table-bordered">
+               <thead>
+                 <tr class="table-dark">
+                   <th scope="col">Cód.</th>
+                   <th scope="col">Fecha Inicio</th>
+                   <th scope="col">Fecha Finalizacion</th>
+                   <th scope="col">Estado</th>
+                   <th scope="col">Anticipo</th>
+                   <th scope="col">Nro. Cuarto</th>
+                   <th scope="col">Nombre Inquilino</th>
+                   <th width="1%"></th>
+                   <th width="1%"></th>
+                   <th width="1%"></th>
+                 </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let item of lista">
+                    <td>{{ item.id}}</td>
+                    <td>{{ item.fecha_inicio.split('T')[0]}}</td>
+                    <td>{{ item.fecha_fin.split('T')[0]}} </td>
+                    <td>
+                      <span *ngIf="item.estado; else finalizadoBadge" class="badge rounded-pill bg-success">Vigente</span>
+                      <ng-template #finalizadoBadge>
+                        <span class="badge bg-danger">Finalizado</span>
+                      </ng-template>
+                    </td>
+                    <td>{{ item.pagoadelanto }} </td>
+                    <td>{{ item.cuarto?.numero }} </td>
+                    <td>{{ item.inquilino?.nombre }} {{ item.inquilino?.apellido }}</td>
+                    <td><button (click)="VerPDFContrato(item)" class="btn btn-sm btn-outline-danger"><i  class="fa-regular fa-file-pdf"></i></button></td>
+                    <td><button (click)="Update(item)" class="btn btn-sm btn-primary"><i  class="fa-solid fa-pen-to-square"></i></button></td>
+                    <td><button (click)="Delete(item)" class="btn btn-sm btn-danger"><i  class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+               </tbody>
+             </table>
+            </div>
+           </div>
+       </div>
+   </div> 
+</div>
+
+  <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" #myModal>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header p-2">
+            <h5 class="modal-title" id="exampleModalLabel">{{ accion }} Registro</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body pt-1">
+              <div>
+                <div class="row">
+                  <div class="border bg-dark  m-0 p-0 ">
+                    <h6 class="text-center m-0 p-0 text-white">Datos del Contrato</h6>
+                  </div> <!-- Línea horizontal -->
+                 
+
+                  <div class="col col-md-6 col-sm-6">
+                    <label for="fecha_inicio" class="col-form-label">Fecha Inicio</label>
+                    <input type="date" [(ngModel)]="fecha_inicio"  class="form-control form-control-sm" id="fecha_inicio" >
+                  </div>
+                  <div class="col col-md-6 col-sm-6">
+                    <label for="fecha_fin" class="col-form-label">Fecha Finalizacion</label>
+                    <input type="date" [(ngModel)]="fecha_fin" value="{{ fecha_fin | date: 'yyyy-MM-dd' }}" class="form-control form-control-sm" id="fecha_fin">
+                  </div>
+                  <!-- <div class="col col-md-6 col-sm-6">
+                    <label for="fecha_fin" class="col-form-label">Estado</label>
+                    <input type="date" [(ngModel)]="estado" value="{{ estado | date: 'yyyy-MM-dd' }}" class="form-control" id="fecha_fin">
+                  </div> -->
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="cuarto" class="col-form-label">Cuarto o Pieza</label>
+                    <select [(ngModel)]="id_cuarto" class="form-select form-select-sm" name="cuarto" id="cuarto" aria-placeholder="Cuartos" (change)="onSelectChange($event)">
+                        <option value="0" selected disabled>Seleccionar Pieza</option>
+                        <option *ngFor="let item of listCuarto" [value]="item.id" [ngClass]="{'fw-bold': true, 'text-success': item.estado, 'text-danger': !item.estado}">Cuarto {{ item.numero }}</option>
+                      </select>
+                  </div>
+                  <div class="col">
+                    <label for="costoMensualCuarto" class="col-form-label">Costo Mensual</label>
+                    <input type="number" min="0" [(ngModel)]="costoMensualCuarto"  class="form-control form-control-sm" id="costoMensualCuarto" readonly disabled >
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="inquilino" class="col-form-label">Inquilino</label>
+                    <select [(ngModel)]="id_inquilino" class="form-select form-select-sm" name="inquilino" id="inquilino" aria-placeholder="Inquilino">
+                        <option value="0" selected disabled>Seleccionar Inquilino</option>
+                        <option *ngFor="let item of listInquilino" [value]="item.id" >{{ item.nombre +' '+ item.apellido  }}</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="border bg-dark mt-3 m-0 p-0 ">
+                    <h6 class="text-center m-0 p-0 text-white">Anticipo</h6>
+                  </div> <!-- Línea horizontal -->
+                 
+                  <div class="col m-0">
+                    <label for="pagoadelanto" class="col-form-label">Cant. Meses</label>
+                    <input type="number"min="0"[(ngModel)]="mesesadelanto" (input)="onInputChange($event)"  class="form-control form-control-sm" id="pagoadelanto"  (click)="CalculaMontAntipo()"   >
+                  </div>
+                  <div class="col">
+                    <label for="pagoadelanto" class="col-form-label">Monto Anticipo</label>
+                    <input type="number" min="0" [(ngModel)]="pagoadelanto"  class="form-control form-control-sm" id="pagoadelanto" readonly disabled>
+                  </div>
+                </div>
+                </div>
+          </div>
+          <div class="modal-footer p-1">
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+            <button   (click)="Add()" type="button" class="btn btn-primary btn-sm">{{ accion }} </button>
+          </div>
+      </div>
+    </div>
+  </div>
+  

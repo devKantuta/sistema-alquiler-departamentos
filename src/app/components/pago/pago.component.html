@@ -1,0 +1,136 @@
+
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Pago Realizados</h1>
+
+ <div class="card ">
+     <div class="card-body">
+      <div class="row mb-2">
+          <!-- <div class="d-flex justify-content-end">
+              <div class="form-group">
+                  <button type="button" class="agregar btn btn-success btn-sm" (click)="AbrirModal()">Actualizar Pagos </button>
+              </div>
+          </div> -->
+      </div>
+       <div class="text-center">
+          <div class="table-responsive">
+           <table class="table table-striped table-hover table-sm  table-bordered">
+             <thead>
+               <tr class="table-dark">
+                 <th scope="col">Fecha</th>
+                 <th scope="col">Mes</th>
+                 <th scope="col">Metodo</th>
+                 <th scope="col">Moto a Pagar</th>
+                 <th scope="col">Adelanto</th>
+                 <th scope="col">Cod. Deuda</th>
+                 <th scope="col">Recibido Por</th>
+                 <th width="1%"></th>
+               </tr>
+             </thead>
+             <tbody>
+                <tr *ngFor="let item of lista">
+                  <td>{{ item.fecha.split('T')[0]}}</td>
+                  <td>{{ item.mes}} </td>
+                  <td>{{ item.metodo_pago}} </td>
+                  <td>{{ item.monto_pagado}} </td>
+                  <td>{{ item.adelanto}} </td>
+                  <td>{{ item.id_deuda}}</td>
+                  <td>{{ item.user?.username}}</td>
+                  <td><button (click)="VerPDFPago(item.id_deuda)" class="btn btn-sm btn-outline-danger"><i  class="fa-regular fa-file-pdf"></i></button></td>
+                </tr>
+             </tbody>
+           </table>
+          </div>
+         </div>
+     </div>
+ </div> 
+</div>
+<!-- 
+Modal
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true" #myModal>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ accion }} Registro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div>
+              <div class="row">
+                <div class="col col-md-6 col-sm-6">
+                  <label for="fecha_inicio" class="col-form-label">Fecha Inicio</label>
+                  <input type="date" [(ngModel)]="fecha_inicio"  class="form-control" id="fecha_inicio" >
+                </div>
+                <div class="col col-md-6 col-sm-6">
+                  <label for="fecha_fin" class="col-form-label">Fecha Finalizacion</label>
+                  <input type="date" [(ngModel)]="fecha_fin" value="{{ fecha_fin | date: 'yyyy-MM-dd' }}" class="form-control" id="fecha_fin">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="cuarto" class="col-form-label">Cuarto o Pieza</label>
+                  <select [(ngModel)]="id_cuarto" class="form-select" name="cuarto" id="cuarto" aria-placeholder="Cuartos">
+                      <option value="0" selected disabled>Seleccionar Pieza</option>
+                      <option *ngFor="let item of listCuarto" [value]="item.id" >Cuarto {{ item.numero }}</option>
+                    </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="inquilino" class="col-form-label">Inquilino</label>
+                  <select [(ngModel)]="id_inquilino" class="form-select" name="inquilino" id="inquilino" aria-placeholder="Inquilino">
+                      <option value="0" selected disabled>Seleccionar Inquilino</option>
+                      <option *ngFor="let item of listInquilino" [value]="item.id" >{{ item.nombre +' '+ item.apellido  }}</option>
+                  </select>
+                </div>
+              </div>
+
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+          <button   (click)="Add()" type="button" class="btn btn-primary btn-sm">{{ accion }} </button>
+        </div>
+    </div>
+  </div>
+</div>
+ -->
+
+
+
+
+
+
+
+
+<!-- 
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Pago Realizados</h1>
+
+   <div class="card ">
+       <div class="card-body">
+        <div class="row mb-2">
+            <div class="d-flex justify-content-end">
+                <div class="form-group">
+                    <button type="button" class="agregar btn btn-success btn-sm" (click)="Calcular()">Calcula</button>
+                </div>
+            </div>
+        </div>
+         <div class="text-center">
+            <div class="table-responsive">
+             <table class="table table-striped table-hover table-sm  table-bordered">
+               <thead>
+                 <tr class="table-dark">
+                   <th scope="col">Fecha</th>
+                 </tr>
+               </thead>
+               <tbody>
+                <tr *ngFor="let date of dates">
+                  <td>{{ formatDate(date) }}</td>
+                </tr>
+              </tbody>
+             </table>
+            </div>
+           </div>
+       </div>
+   </div> 
+</div> -->

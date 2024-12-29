@@ -1,0 +1,67 @@
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Cuartos</h1>
+    <div class="row mb-4">
+        <div class="mb-3 col col-md-3">
+          <label for="numero" class="form-label">Numero</label>
+          <input type="text" [(ngModel)]="numero" class="form-control" id="numero" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3 col col-md-3">
+          <label for="descripcion" class="form-label">Descripción</label>
+          <input type="text" [(ngModel)]="descripcion" class="form-control" id="descripcion">
+        </div>
+
+        <div class="mb-3 col col-md-3">
+          <label for="dimension" class="form-label">Dimensión</label>
+          <input type="text" [(ngModel)]="dimension" class="form-control" id="dimension">
+        </div>
+        <div class="mb-3 col col-md-3">
+          <label for="costo" class="form-label">Costo</label>
+          <input type="text" [(ngModel)]="costo" class="form-control" id="costo">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="form-group">
+              <button   (click)="addCuarto()" type="button" class="btn btn-primary btn-sm">{{ accion }} </button>
+            </div>
+        </div>
+    </div>
+
+   <div class="card ">
+       <div class="card-body">
+         <div class="text-center">
+            <div class="table-responsive">
+             <table class="table table-striped table-hover table-sm  table-bordered">
+               <thead>
+                 <tr class="table-dark">
+                   <th scope="col" width="6%">Numero</th>
+                   <th scope="col">Descripción</th>
+                   <th scope="col">Dimensión</th>
+                   <th scope="col">Costo Mensual</th>
+                   <th scope="col">Estado</th>
+                   <th width="1%"></th>
+                   <th width="1%"></th>
+                 </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let item of listCuarto">
+                    <td>{{ item.numero }}</td>
+                    <td>{{ item.descripcion }} </td>
+                    <td>{{ item.dimension }} </td>
+                    <td>{{ item.costo }} </td>
+                    <td>
+                      <span *ngIf="item.estado; else cuartoestado" class="badge rounded-pill bg-success">Disponible</span>
+                      <ng-template #cuartoestado>
+                        <span class="badge bg-danger">Ocupado</span>
+                      </ng-template>
+                    </td>
+                    <td><button (click)="UpdateCuarto(item)" class="btn btn-sm btn-primary"><i  class="fa-solid fa-pen-to-square"></i></button></td>
+                    <td><button (click)="DeleteCuarto(item.id)" class="btn btn-sm btn-danger"><i  class="fa-solid fa-trash-can"></i></button></td>
+                  </tr>
+               </tbody>
+             </table>
+            </div>
+           </div>
+       </div>
+   </div> 
+</div>
+
