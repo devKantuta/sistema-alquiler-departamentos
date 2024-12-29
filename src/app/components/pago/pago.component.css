@@ -14,7 +14,7 @@ body {
     text-align: center;
     margin-bottom: 20px;
     background: linear-gradient(90deg, #ff6f61, #ffa17a);
-   
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: glow 1.5s infinite alternate;
   }
