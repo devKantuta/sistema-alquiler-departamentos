@@ -45,29 +45,29 @@ body {
 
 /* Encabezados de la barra lateral */
 .sb-sidenav-menu-heading {
-  color: #ffffff;
+  color: #263bb3;
   font-size: 1.2rem;
   font-weight: bold;
   margin-top: 20px;
-  background: linear-gradient(90deg, #0091ea, #121ea6); /* Degradado azul-celeste */
+  /* Degradado azul-celeste */
  
-  -webkit-text-fill-color: transparent;
+
   animation: glow 1.5s infinite alternate;
 }
 
 /* Animación de resplandor en el texto */
 @keyframes glow {
   0% {
-    text-shadow: 0px 0px 10px #0091ea;
+    text-shadow: 0px 0px 10px #3b0e8e;
   }
   100% {
-    text-shadow: 0px 0px 20px #131186;
+    text-shadow: 0px 0px 20px #191989;
   }
 }
 
 /* Enlaces de la barra lateral */
 .nav-link {
-  color: #ecf0f1;
+  color: #1d138b;
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 1rem;
@@ -79,7 +79,7 @@ body {
 
 /* Efecto hover para los enlaces */
 .nav-link:hover {
-  background-color: #0b1799; /* Fondo verde claro al pasar el ratón */
+  background-color: #1b2673; /* Fondo verde claro al pasar el ratón */
   color: #ffffff; /* Texto blanco */
   transform: scale(1.05);
 }
